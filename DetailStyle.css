@@ -1,0 +1,57 @@
+:root{
+  --paddind: 20px
+}
+
+body{
+  background: linear-gradient(#FF4FF2,#B84FFF,#644FFF);
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+p{
+  font-size: 1.3rem;
+  margin-left: 20px;
+}
+h1{
+  color: rgba(255, 255, 255, 1);
+}
+
+.FilmDetails{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+.miniature{
+  height: 250px;
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  box-shadow: inset 0 10px 100px  rgba(14, 169, 255, 0.2)
+              
+            ;
+}
+.miniature img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.namely, .author, .otherInfo, .ratingAndSource{
+  width: calc(100% - var(--padding)*2);
+  padding: var(--paddind);
+}
+.namely p span{
+  font-size: 1rem;
+  font-weight: 350;
+}
+
+.webSite{
+  font-size: .8rem;
+}
+.webSite a{
+  text-decoration-color: rgba(149, 29, 255, 1);
+}

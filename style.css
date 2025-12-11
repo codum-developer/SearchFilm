@@ -1,0 +1,155 @@
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#7A81D5, #B25FFF, #F744FF);
+  background-attachment: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 2rem;
+  margin-bottom: 20px;
+}
+
+
+.search input {
+  height: 50%;
+  width: 90%;
+  border-radius: 20px;
+  caret-color: #FFF8FF;
+  background: none;
+  border: 2px solid #FFFFFF;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.search input:focus, button:focus {
+  outline: none;
+}
+.search label{
+  font-size: 2rem;
+  color: transparent;
+  background: linear-gradient(#CFA8FF,#F8C7FF);
+  background-clip: text;
+  font-weight: 500;
+  text-align: center;
+}
+
+.search button{
+  background: #7400FF;
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  color: #FFFFFF;
+  font-weight: 1.3rem;
+}
+
+
+.result{
+  padding: 0 5px;
+  position: relative;
+  min-height: 400px;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  
+}
+.resultLen{
+  display: none;
+  color: #FFFFFF;
+  font-size: .8rem;
+  text-align: center;
+}
+
+.filmContainer{
+  height: 281px;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #FFFFFF54;
+  margin-bottom: 8px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.filmContainer img{
+  width: 100%;
+  height: 200px;
+  background: #454757;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.filmDetail{
+  width: 100%;
+  height: 81px;
+  padding: 5px;
+  background: #000000;
+}
+.filmDetail p{
+  display: block;
+  margin: 0;
+  margin-top: 2px;
+  color: #F4C4FF;
+  
+}
+
+.err{
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 80%;
+  max-width: 200px;
+  height: 100px;
+  border-radius: 20px;
+  background: #FFFFFF6B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contentErr{
+  color: #000000;
+  font-weight: 350;
+  text-align: center;
+}
+
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  50% {
+    border-top: #763CFF solid 2px;
+    border-left: #763CFF solid 2px;
+  }
+  
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingSpiner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border: #E2FDFF solid 2px;
+  border-top: #763CFF solid 2px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  animation: spin 1s forwards infinite;
+}
