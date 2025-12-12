@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
+  sessionStorage.removeItem("latestDetail")
   const savedSearch = sessionStorage.getItem("latestResults")
   if (savedSearch) {
     displayResult(JSON.parse(savedSearch))
@@ -44,7 +45,7 @@ function displayResult(data, err) {
   const boxes = document.querySelectorAll(".filmContainer")
   boxes.forEach((box, index) => {
     box.addEventListener("click", () => {
-      sessionStorage.setItem("imdbID",resultList[index].imdbID )
+      sessionStorage.setItem("imdbID", resultList[index].imdbID)
       window.location.href = "./details.html"
       return
     })
@@ -55,11 +56,23 @@ function displayResult(data, err) {
 function listenInputStartSearching() {
   const searchInput = document.getElementById("searchInput")
   const searchForm = document.querySelector(".search")
-  
+  /*
+  const yearFilter = document.getElementById("year")
+  const typeFilter = document.getElementById("type")
+  const durationFilter = document.getElementById("duration")
+  */
+  const filterInputs = document.querySelectorAll(".filter-input")
   searchForm.addEventListener("submit", async (e) => {
     e.preventDefault()
     resultContainer.innerHTML = ""
+    
     if (searchInput.value !== "") {
+      filterInputs.forEach(filter => {
+        if (filter.value !== "none") {
+          
+        }
+      })
+      
       const loadingSpiner = document.createElement("div")
       loadingSpiner.classList.add("loadingSpiner")
       resultContainer.appendChild(loadingSpiner)

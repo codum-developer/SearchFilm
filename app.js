@@ -72,7 +72,10 @@ class SearchFilm {
   
   async getDetail(contentID) {
     try {
-      return await this.api.get(`/?apikey=3c8c985a&i=${contentID}`)
+      const data = await this.api.get(`/?apikey=3c8c985a&i=${contentID}`)
+      sessionStorage.removeItem("latestDetail")
+      sessionStorage.setItem("latestDetail", JSON.stringify(data))
+      return data
     } catch (e) {
       throw e
     }

@@ -11,52 +11,7 @@
 </head>
 
 <body>
-  <article class="FilmDetails">
-    <details>
-      <summary>
-        Voir la description du film
-      </summary>
-      <p></p>
-    </details>
-    
-    
-    <div class="miniature">
-      <img src="" alt="" loading="lazy" />
-    </div>
-    <br />
-    <div class="namely">
-      <h1>À savoir</h1>
-      <p class="title">Titre : <span>wazalendo</span></p>
-      <p class="year">Depuis : <span></span></p>
-      <p class="released">Sortie : <span></span></p>
-      <p class="runtime">Durée : <span></span></p>
-      <p class="genre">Genre : <span></span></p>
-    </div>
-    
-    <br />
-    <div class="author">
-      <h1>Auteurs</h1>
-      <p class="director">directeur : <span>${details.Director}</span> </p>
-      <p class="writer">écrivain : <span>${details.Writer}</span> </p>
-      <br />
-      <h2>Acteurs :</h2>
-      <ol class="actors">
-        ${out}
-      </ol>
-    </div>
-    
-    <div class="otherInfo">
-      <h1>Autres infos</h1>
-      <p class="language">langue : <span>${details.Language}</span> </p>
-      <p class="country">pays: <span>${details.Country}</span> </p>
-    </div>
-    <br />
-    <div class="ratingAndSource">
-      <h1>Note et Source</h1>
-      <p class="rating">Note: <span>${details.Ratings[0]?.Value}</span> </p>
-      <p class="webSite">Voir ce film ici :<a href="${details.Website || " #"}">${details.Website}</a></p>
-    </div>
-  </article>
+  <article class="FilmDetails"></article>
   
   <script src="./DOMdetail.js" type="text/javascript" charset="utf-8"></script>
 </body>

@@ -1,8 +1,19 @@
-const contentId = sessionStorage.getItem("imdbID")
-sessionStorage.removeItem("imdbID")
-const searchFilm = new SearchFilm()
+document.addEventListener("DOMContentLoaded", () => {
+  const latestDetail = sessionStorage.getItem("latestDetail")
+  if (latestDetail) {
+    displayDetail(JSON.parse(latestDetail))
+  } else {
+    catchDetail()
+  }
+})
+
+
+
 
 async function catchDetail() {
+  const contentId = sessionStorage.getItem("imdbID")
+  sessionStorage.removeItem("imdbID")
+  const searchFilm = new SearchFilm()
   try {
     const details = await searchFilm.getDetail(contentId)
     console.log(details)
@@ -36,7 +47,7 @@ function displayDetail(details) {
             </summary>
             <p>${details.Plot}</p>
           </details>
-          <br />
+          
           <div class="namely">
             <h1>À savoir</h1>
             <p class="title">Titre : <span>${details.Title}</span></p>
@@ -74,5 +85,3 @@ function displayDetail(details) {
   
   detailsContainer.innerHTML = filmDetailContent
 }
-
-catchDetail()

@@ -16,10 +16,39 @@
     <input type="search" name="" id="searchInput">
     <button type="submit" id="submitButton">Rechercher</button>
   </form>
-  <p class="resultLen">Voici les résultats de recherche: <span id="resultLen"></span> résultat(s)
-  <div class="result">
-    
+  
+  <div class="filtered">
+    <p>Appliquer du filtre pour un résultat positif</p>
+    <div class="allFilters">
+      <div class="filter-year">
+        <label for="year">Année</label>
+        <input type="number" name="" id="year" class="filter-input">
+      </div>
+      
+      <div class="filter-duration">
+        <label for="duration">Durée</label>
+        <select name="" id="duration" class="filter-input">
+          <option value="none">sans filtre</option>
+          <option value="Full">Court</option>
+          <option value="Short">Long</option>
+        </select>
+      </div>
+      
+      <div class="filter-type">
+        <label for="type">type</label>
+        <select name="" id="type" class="filter-input">
+          <option value="none">sans filtre</option>
+          <option value="movie">Film</option>
+          <option value="series">série</option>
+          <option value="episode">Episode</option>
+        </select>
+      </div>
+    </div>
   </div>
+  
+  
+  <p class="resultLen">Voici les résultats de recherche: <span id="resultLen"></span> résultat(s)</p>
+  <div class="result"></div>
   
   <script src="./dom.js" type="text/javascript" charset="utf-8"></script>
 </body>
