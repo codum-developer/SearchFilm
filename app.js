@@ -59,7 +59,8 @@ class SearchFilm {
           return
         }
       }
-      
+      sessionStorage.removeItem("latestResults")
+      sessionStorage.setItem("latestResults", JSON.stringify(result))
       displayResult(result, false)
       return
     } catch (e) {

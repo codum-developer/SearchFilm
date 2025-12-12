@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", ()=>{
+  const savedSearch = sessionStorage.getItem("latestResults")
+  if (savedSearch) {
+    displayResult(JSON.parse(savedSearch))
+  }
+})
+
 const searchContainer = document.querySelector(".search")
 const resultContainer = document.querySelector(".result")
 

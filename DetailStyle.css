@@ -16,6 +16,10 @@ p{
 h1{
   color: rgba(255, 255, 255, 1);
 }
+span{
+  font-size: 1rem;
+  font-weight: 350;
+}
 
 .FilmDetails{
   position: relative;
@@ -26,28 +30,55 @@ h1{
 
 .miniature{
   height: 250px;
+  width: 100%;
+  backdrop-filter: blur(15px);
   margin: 0;
   padding: 0;
-  position: sticky;
   top: 0;
-  box-shadow: inset 0 10px 100px  rgba(14, 169, 255, 0.2)
-              
-            ;
+  box-shadow: inset 0 10px 100px  rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 .miniature img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  filter: drop-shadow(0 0 100px 50pxrgba(100, 79, 255, 1));
+}
+details{
+  display: grid;
+  place-items: center;
+  width: fit-content;
+  max-width: 90%;
+  border-bottom: 1px solid rgba(100, 79, 255, 1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin: 0 auto;
+}
+details p{
+ color: rgba(220, 216, 255, 1); 
+ font-size: .8rem;
+ text-align: center;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+}
+summary{
+  background: rgba(100, 79, 255, 1);
+  border-radius: 20px;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 2rem;
 }
 
 .namely, .author, .otherInfo, .ratingAndSource{
   width: calc(100% - var(--padding)*2);
   padding: var(--paddind);
 }
-.namely p span{
-  font-size: 1rem;
-  font-weight: 350;
-}
+
 
 .webSite{
   font-size: .8rem;

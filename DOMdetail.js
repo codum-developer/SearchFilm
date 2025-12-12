@@ -30,6 +30,12 @@ function displayDetail(details) {
           <div class="miniature">
             <img src="${details.Poster}" alt="poster" loading="lazy" />
           </div>
+          <details>
+            <summary>
+              Voir la description du film
+            </summary>
+            <p>${details.Plot}</p>
+          </details>
           <br />
           <div class="namely">
             <h1>À savoir</h1>
@@ -43,8 +49,8 @@ function displayDetail(details) {
           <br />
           <div class="author">
             <h1>Auteurs</h1>
-            <p class="director">directeur : ${details.Director}</p>
-            <p class="writer">écrivain : ${details.Writer}</p>
+            <p class="director">directeur : <span>${details.Director}</span> </p>
+            <p class="writer">écrivain : <span>${details.Writer}</span> </p>
             <br />
             <h2>Acteurs :</h2>
             <ol class="actors">
@@ -54,19 +60,19 @@ function displayDetail(details) {
           
           <div class="otherInfo">
             <h1>Autres infos</h1>
-            <p class="language">langue : ${details.Language}</p>
-            <p class="country">pays: ${details.Country}</p>
+            <p class="language">langue : <span>${details.Language}</span> </p>
+            <p class="country">pays: <span>${details.Country}</span> </p>
           </div>
           <br />
           <div class="ratingAndSource">
             <h1>Note et Source</h1>
-            <p class="rating">Note: ${details.Ratings[0]?.Value}</p>
-            <p class="webSite">Voir ce film ici :<a href="${details.Website || "#"}">Chercher ici</a></p>
+            <p class="rating">Note: <span>${details.Ratings[0]?.Value}</span> </p>
+            <p class="webSite">Voir ce film ici :<a href="${details.Website || " #"}">${details.Website}</a></p>
           </div>
           
       `
-      
-      detailsContainer.innerHTML = filmDetailContent
+  
+  detailsContainer.innerHTML = filmDetailContent
 }
 
 catchDetail()
