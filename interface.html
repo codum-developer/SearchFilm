@@ -12,31 +12,33 @@
 
 <body>
   <form class="search">
-    <label for="searchInput">Taper ici le film que tu veux rechercher</label>
-    <input type="search" name="" id="searchInput">
-    <button type="submit" id="submitButton">Rechercher</button>
+    <label for="searchInput">Entrer un titre que tu veux chercher</label>
+    <div class="search-wrapper">
+      <input type="search" name="" id="searchInput">
+      <button type="submit" id="submitButton">Chercher</button>
+    </div>
   </form>
   
   <div class="filtered">
-    <p>Appliquer du filtre pour un résultat positif</p>
+    <p>Vous pouvez aussi filter votre recherche</p>
     <div class="allFilters">
       <div class="filter-year">
         <label for="year">Année</label>
-        <input type="number" name="" id="year" class="filter-input">
+        <input type="number" name="y" id="" class="filter-input">
       </div>
       
       <div class="filter-duration">
         <label for="duration">Durée</label>
-        <select name="" id="duration" class="filter-input">
+        <select name="plot" id="duration" class="filter-input">
           <option value="none">sans filtre</option>
-          <option value="Full">Court</option>
-          <option value="Short">Long</option>
+          <option value="short">Court</option>
+          <option value="full">Long</option>
         </select>
       </div>
       
       <div class="filter-type">
-        <label for="type">type</label>
-        <select name="" id="type" class="filter-input">
+        <label for="type">Type</label>
+        <select name="type" id="type" class="filter-input">
           <option value="none">sans filtre</option>
           <option value="movie">Film</option>
           <option value="series">série</option>
@@ -48,7 +50,14 @@
   
   
   <p class="resultLen">Voici les résultats de recherche: <span id="resultLen"></span> résultat(s)</p>
-  <div class="result"></div>
+  <div class="result">
+    <p style="position: absolute; inset: 50% 25%; margin: auto; font-size: 1.1rem; text-align: center; ">Les résultats seront affichés ici</p>
+  </div>
+  
+  <div class="skip-age">
+    <button name="prevButton">prev</button>
+    <button name="nextButton">next</button>
+  </div>
   
   <script src="./dom.js" type="text/javascript" charset="utf-8"></script>
 </body>

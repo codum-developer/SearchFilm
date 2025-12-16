@@ -1,15 +1,25 @@
+:root {
+  --black-color: hsla(215, 100%, 0%, 1);
+  --light-color: hsla(215, 0%, 100%, 1);
+  --primary-color: #E63DFF;
+  --secondary-color: #246EFF;
+}
+
+
 body {
   position: relative;
   margin: 0;
   padding: 0;
-  background: linear-gradient(#7A81D5, #B25FFF, #F744FF);
+  background: radial-gradient(circle at 100% 200%,var(--light-color) , var(--black-color)80%);
   background-attachment: fixed;
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
   
 }
-
+p, h1, h2, h3{
+  font-family: Arial, Helvetica, sans-serif;
+}
 .search {
   width: 100%;
   display: flex;
@@ -19,43 +29,50 @@ body {
   row-gap: 2rem;
   margin-bottom: 20px;
 }
-
-
-.search input {
-  height: 50%;
-  width: 90%;
-  border-radius: 20px;
-  caret-color: #FFF8FF;
-  background: none;
-  border: 2px solid #FFFFFF;
-  padding: 10px;
-  font-size: 1.2em;
-  font-weight: 300;
-}
-
-.search input:focus, button:focus {
-  outline: none;
-}
-.search label{
+.search label {
   font-size: 2rem;
   color: transparent;
-  background: linear-gradient(#CFA8FF,#F8C7FF);
+  background: linear-gradient(60deg, var(--primary-color), var(--secondary-color));
   background-clip: text;
   font-weight: 500;
   text-align: center;
 }
 
-.search button{
-  background: #7400FF;
+.search-wrapper {
+  position: relative;
+  max-width: 600px;
+}
+
+.search input {
+  width: 70%;
+  color: var(--light-color);
+  caret-color: var(--light-color);
+  background: none;
   border: none;
-  border-radius: 20px;
-  padding: 20px;
+  border-bottom: 2px solid var(--light-color);
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.search input:focus,
+button:focus {
+  outline: none;
+}
+
+.search button {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 30%;
+  background: none;
+  border: none;
+  border-left: 2px solid var(--primary-color);
   color: #FFFFFF;
   font-weight: 1.3rem;
 }
 
-
-.result{
+.result {
   padding: 0 5px;
   position: relative;
   min-height: 400px;
@@ -65,14 +82,15 @@ body {
   gap: 8px;
   
 }
-.resultLen{
+
+.resultLen {
   display: none;
   color: #FFFFFF;
   font-size: .8rem;
   text-align: center;
 }
 
-.filtered{
+.filtered {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -80,30 +98,49 @@ body {
   align-items: center;
   margin-bottom: 3rem;
 }
-.allFilters{
+
+.filtered p {
+  color: #FFFFFF;
+  font-size: .9rem;
+}
+
+.allFilters {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
   width: 100%;
 }
+
 .filter-year,
 .filter-duration,
-.filter-type{
+.filter-type {
   width: 100px;
-  height: 1.7rem;
+  height: 1.5rem;
+  color: var(--primary-color);
 }
+
 .filter-year input,
 .filter-duration select,
-.filter-type select{
+.filter-type select {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 10px;
-  color: rgba(113, 162, 255, 1);
+  color: var(--light-color);
+  background: transparent;
+  border-bottom: 2px solid var(--secondary-color);
+  
+}
+
+.filter-year input:focus,
+.filter-duration select:focus,
+.filter-type select:focus {
+  outline: none;
+  filter: drop-shadow(0 0 10px var(--secondary-color));
 }
 
 
 
-.filmContainer{
+.filmContainer {
   height: 281px;
   min-width: 100%;
   display: flex;
@@ -114,7 +151,8 @@ body {
   border-radius: 20px;
   overflow: hidden;
 }
-.filmContainer img{
+
+.filmContainer img {
   width: 100%;
   height: 200px;
   background: #454757;
@@ -122,13 +160,14 @@ body {
   border-top-left-radius: 20px;
 }
 
-.filmDetail{
+.filmDetail {
   width: 100%;
   height: 81px;
   padding: 5px;
   background: #000000;
 }
-.filmDetail p{
+
+.filmDetail p {
   display: block;
   margin: 0;
   margin-top: 2px;
@@ -138,7 +177,31 @@ body {
   
 }
 
-.err{
+.skip-age {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  margin: 3rem auto;
+  
+}
+
+.skip-age button {
+  width: 70px;
+  padding: 5px;
+  border: none;
+  background: #6070FF;
+  color: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px #0000008F;
+}
+
+.skip-age button:active {
+  transform: scale(.9);
+  box-shadow: none;
+}
+
+.err {
   position: absolute;
   inset: 0;
   margin: auto;
@@ -151,7 +214,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-.contentErr{
+
+.contentErr {
   color: #000000;
   font-weight: 350;
   text-align: center;

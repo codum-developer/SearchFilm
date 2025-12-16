@@ -9,23 +9,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+const detailsContainer = document.querySelector(".FilmDetails")
 async function catchDetail() {
   const contentId = sessionStorage.getItem("imdbID")
   sessionStorage.removeItem("imdbID")
-  const searchFilm = new SearchFilm()
-  try {
-    const details = await searchFilm.getDetail(contentId)
-    console.log(details)
-    displayDetail(details)
-  } catch (e) {
-    throw e
+  if (contentId) {
+    const searchFilm = new SearchFilm()
+    const loadingSpiner = document.createElement("div")
+    loadingSpiner.classList.add("loadingSpiner")
+    detailsContainer.appendChild(loadingSpiner)
+    try {
+      const details = await searchFilm.getDetail(contentId)
+      displayDetail(details)
+    } catch (e) {
+      throw e
+    }
   }
+  
   
 }
 
 function displayDetail(details) {
-  const detailsContainer = document.querySelector(".FilmDetails")
   detailsContainer.innerHTML = ""
   let out = ""
   if (details.Actors !== "N/A") {
