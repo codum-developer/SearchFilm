@@ -24,8 +24,11 @@ searchForm.addEventListener("submit", (e) => {
 
 async function startSearching(pageNumber = 1) {
   resultContainer.innerHTML = ""
-  let filterToApply = ""
+  const loadingSpiner = document.createElement("div")
+  loadingSpiner.classList.add("loadingSpiner")
+  resultContainer.appendChild(loadingSpiner)
   
+  let filterToApply = ""
   filterInputs.forEach(filter => {
     if (filter.value !== "none") {
       if (filter.value !== "") {
@@ -33,14 +36,7 @@ async function startSearching(pageNumber = 1) {
       }
     }
   })
-  
-  const loadingSpiner = document.createElement("div")
-  loadingSpiner.classList.add("loadingSpiner")
-  resultContainer.appendChild(loadingSpiner)
-  
-  
   const cleanedInput = searchFilm.cleanInput(searchInput.value)
-  
   const url = `s=${cleanedInput}${filterToApply}&page=${pageNumber}`
   await searchFilm.requestFilm(url)
   return
@@ -72,7 +68,6 @@ function nextPrevPage(e) {
   startSearching(pageNumber)
   return
 }
-
 
 
 function displayResult(data, err) {

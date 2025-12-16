@@ -76,9 +76,11 @@ button:focus {
   padding: 0 5px;
   position: relative;
   min-height: 400px;
+  max-width: 1000px;
+  margin: 0 auto;
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   
 }
@@ -158,6 +160,12 @@ button:focus {
   background: #454757;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+}
+
+@media (min-width: 600px){
+  .result{
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .filmDetail {
