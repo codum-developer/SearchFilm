@@ -6,6 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
   if (savedSearch) {
     displayResult(JSON.parse(savedSearch))
   }
+  
+  // gere le bouton go-up
+  const goUpButton = document.querySelector(".go-up")
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > window.innerHeight) {
+      goUpButton.style.display = "flex"
+    } else goUpButton.style.display = "none"
+  })
+  
+  goUpButton.addEventListener("click", () => window.scrollTo(0, 0))
+  
+  
+  createFloatDot()
+  
+  
+  
 })
 
 const searchContainer = document.querySelector(".search")
@@ -115,4 +131,43 @@ function displayResult(data, err) {
       return
     })
   })
+}
+
+
+
+
+
+function createFloatDot() {
+  const dotContainer = document.querySelector(".dot-container")
+  
+  
+  const dotCount = 50
+  
+  
+  
+  for (let i = 0; i < dotCount; i++) {
+    const dot = document.createElement("div")
+    dot.className = "dot"
+    
+    const size = Math.random() * 5 + 2
+    const left = Math.random() * 100
+    const top = Math.random() * 100
+    const animationDuration = Math.random() * 20 + 10
+    const animationDelay = Math.random() * 5
+    const opacity = Math.random() * 0.8 + 0.2
+    
+    const dotStyle = {
+      width: `${size}px`,
+      height: `${size}px`,
+      left: `${left}%`,
+      top: `${top}%`,
+      animationDuration: `${animationDuration}s`,
+      animationDelay: `${animationDelay}s`,
+      opacity: opacity
+    }
+    
+    Object.assign(dot.style, dotStyle)
+    dotContainer.appendChild(dot)
+  }
+  
 }
